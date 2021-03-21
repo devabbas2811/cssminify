@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<title>Css Minifier</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="./css/index.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: "Poppins", sans-serif
+  }
+
+  body {
+    font-size: 16px;
+  }
+
+  img {
+    margin-bottom: -8px;
+  }
+
+</style>
+
+<body class="w3-content w3-black" style="max-width:1500px;height: 300px;">
+      <!--SnackBar-->
+  <div id="snackbar">Some text some message..</div>
+  <!-- Header with Slideshow -->
+  <header class="w3-display-container w3-center">
+    
+    <div class="mySlides w3-animate-opacity">
+     
+      
+      <img class="w3-image"
+        src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1500' height='1000' preserveAspectRatio='none' viewBox='0 0 1500 1000'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1027%26quot%3b)' fill='none'%3e%3crect width='1500' height='1000' x='0' y='0' fill='%230e2a47'%3e%3c/rect%3e%3cpath d='M0%2c580.643C127.743%2c577.988%2c267.558%2c652.655%2c375.531%2c584.338C483.5%2c516.024%2c488.394%2c363.138%2c532.992%2c243.409C574.137%2c132.951%2c626.604%2c27.758%2c626.76%2c-90.114C626.933%2c-220.736%2c628.879%2c-372.95%2c533.927%2c-462.651C439.003%2c-552.325%2c286.389%2c-517.859%2c156.816%2c-534.067C49.265%2c-547.521%2c-55.219%2c-571.465%2c-161.385%2c-549.627C-274.289%2c-526.403%2c-397.75%2c-496.914%2c-468.018%2c-405.54C-537.491%2c-315.2%2c-498%2c-186.108%2c-525.908%2c-75.614C-558.295%2c52.615%2c-671.692%2c164.983%2c-644.824%2c294.481C-617.126%2c427.976%2c-510.317%2c544.856%2c-385.699%2c600.159C-265.602%2c653.456%2c-131.364%2c583.373%2c0%2c580.643' fill='%230b2239'%3e%3c/path%3e%3cpath d='M1500 1358.498C1579.199 1358.626 1659.93 1393.301 1732.757 1362.1770000000001 1810.133 1329.109 1888.007 1267.498 1905.52 1185.195 1922.982 1103.133 1845.281 1033.921 1819.6019999999999 954.048 1799.318 890.957 1803.057 823.304 1770.597 765.527 1732.676 698.03 1694.2350000000001 612.5699999999999 1618.563 596.211 1542.332 579.731 1482.93 665.0360000000001 1408.145 687.171 1333.604 709.2339999999999 1237.502 669.905 1182.838 725.177 1128.555 780.064 1158.446 872.913 1148.709 949.492 1139.166 1024.543 1105.187 1098.033 1126.186 1170.715 1148.614 1248.342 1195.521 1325.156 1267.725 1361.4270000000001 1338.347 1396.904 1420.968 1358.371 1500 1358.498' fill='%23113255'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1027'%3e%3crect width='1500' height='1000' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e"
+        alt="Image 1" style="min-width:500px" width="1500" height="200">
+ 
+        <div class="w3-display-topmiddle w3-container w3-padding-16 w3-lobster w3-opacity"><h1>CSS<i class="fa fa-css3" aria-hidden="true"></i> Minifier</h1></div>
+
+      <div class="w3-display-left w3-padding w3-hide-small" style="width:50%">
+        <div class="w3-black w3-opacity w3-hover-opacity-off w3-padding-large w3-round-large">
+          <h1 class="w3-xlarge">Paste Your CSS File Here</h1>
+          <hr class="w3-opacity">
+          <p><textarea class="w3-input w3-padding-32" placeholder="Message" required="" id="orgcss"
+              name="orgcss"></textarea></p>
+          <p><button class="w3-button w3-opacity w3-center w3-block w3-green w3-round" onclick="minifyCss();">Convert <i
+                class="fa fa-arrow-circle-right"></i> </button></p>
+        </div>
+      </div>
+      <div class="w3-display-right w3-padding w3-hide-small" style="width:50%">
+        <div class="w3-black w3-opacity w3-hover-opacity-off w3-padding-large w3-round-large">
+          <h1 class="w3-xlarge">Minified CSS File</h1>
+          <hr class="w3-opacity">
+
+          <p><textarea class="w3-input w3-padding-32" id="mincss" placeholder="" required="" name="mincss"></textarea>
+          </p>
+          <p><button class="w3-button w3-opacity w3-center w3-block w3-green w3-round" onclick="copyFun();">Copy <i
+                class="fa fa-copy"></i> </button></p>
+        </div>
+      </div>
+
+
+    </div>
+    <!-- The Modal -->
+    <div id="modal" class="w3-modal">
+      <div class="w3-modal-content w3-animate-top" style="max-width: 600px;">
+
+        <header class="w3-container w3-teal">
+          <span onclick="document.getElementById('modal').style.display='none'"
+            class="w3-button w3-display-topright">&times;</span>
+          <h2>Error Message</h2>
+        </header>
+
+        <div class="w3-container">
+          <p id="modalmessage"></p>
+
+        </div>
+
+
+      </div>
+    </div>
+
+
+</body>
+<script src="./js/index.js"></script>
+
+</html>
